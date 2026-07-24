@@ -1,0 +1,115 @@
+.welcome-page .welcome-title {
+    margin: 4px 0 34px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: clamp(42px, 5vw, 78px);
+    font-weight: 900;
+    letter-spacing: 1px;
+    color: var(--color-primary);
+}
+
+.matches-section {
+    width: 100%;
+    display: grid;
+    gap: 80px;
+    margin-top: 20px;
+}
+
+.welcome-action {
+    margin-top: 42px;
+    margin-bottom: 16px;
+}
+
+/* Rendered match content */
+.match-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 28px 22px;
+}
+
+.match-date-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    text-align: center;
+
+    margin-bottom: 18px;
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--text-main);
+}
+
+.match-date-icon {
+    font-size: 24px;
+    line-height: 1;
+}
+
+.match-teams-row {
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(70px, 100px) 1fr auto 1fr minmax(70px, 100px);
+    align-items: center;
+    gap: 14px;
+}
+
+.match-logo-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.match-logo {
+    width: 68px;
+    height: 68px;
+    object-fit: contain;
+}
+
+.team-name {
+    font-size: clamp(22px, 2vw, 34px);
+    font-weight: 800;
+    line-height: 1.15;
+    text-align: center;
+    color: var(--text-main);
+}
+
+.team-name.highlight {
+    color: var(--color-primary);
+}
+
+.vs-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 50px;
+    height: 50px;
+    padding: 0 10px;
+    border-radius: 12px;
+
+    background: linear-gradient(180deg, #ffb06b 0%, #ff7c43 100%);
+    color: #fff;
+    font-size: 22px;
+    font-weight: 900;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+}
+
+.match-countdown {
+    margin-top: 16px;
+    font-size: 18px;
+    color: var(--text-soft);
+    text-align: center;
+}
+
+.match-countdown strong {
+    color: #ffffff;
+}
+
+.match-empty {
+    padding: 28px 24px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-muted);
+}

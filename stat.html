@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gesamtstatistik</title>
+
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/stat.css">
+
+<script src="js/clock.js" defer></script>
+
+</head>
+
+<body class="pdf-page1">
+
+<!-- 🔙 BACK BUTTON -->
+<a href="welcome.html" class="nav-button nav-back-fixed">
+    <span>⬅️</span>
+    zurück
+</a>
+
+<!-- 🕒 DATUM & UHR -->
+<div class="datetime-card">
+    <div class="date-text" id="date">--</div>
+    <div class="clock">
+        <span id="clock-main">--:--</span>
+        <span id="clock-sec">--</span>
+    </div>
+</div>
+
+<div class="page-shell">
+
+    <div class="page-content pdf-layout1">
+
+        <!-- Titel -->
+        <h1 class="pdf-title1">Gesamtstatistik</h1>
+
+        <!-- Aktualisiert -->
+        <div class="pdf-footer1">
+            <span>aktualisiert am </span>
+            <span id="info-date"></span>
+        </div>
+
+        <!-- Statistikseiten -->
+        <div class="pdf-container1">
+
+            <img
+                src="Dateien/gesamtstat_Seite_1.png"
+                alt="Gesamtstatistik Seite 1"
+                class="stat-image"
+            >
+
+            <img
+                src="Dateien/gesamtstat_Seite_2.png"
+                alt="Gesamtstatistik Seite 2"
+                class="stat-image"
+            >
+
+            <img
+                src="Dateien/gesamtstat_Seite_3.png"
+                alt="Gesamtstatistik Seite 3"
+                class="stat-image"
+            >
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+const lastModified = new Date(document.lastModified);
+
+const options = {
+    weekday: 'long',
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric'
+};
+
+const formattedDate = lastModified.toLocaleDateString('de-DE', options);
+
+document.getElementById("info-date").textContent = formattedDate;
+</script>
+
+</body>
+</html>

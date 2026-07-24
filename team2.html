@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zwoote – SV Holtsee/Wittensee</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+
+<body class="team-page bg-zwoote">
+
+    <!-- DATUM & UHR -->
+    <div class="datetime-card">
+        <div class="date-text" id="date">--</div>
+        <div class="clock">
+            <span id="clock-main">--:--</span>
+            <span id="clock-sec">--</span>
+        </div>
+    </div>
+
+    <div class="page-shell">
+        <div class="page-content team-page-content">
+            <main class="team-layout">
+
+                <!-- HEADER -->
+                <header class="team-header">
+                    <h1 class="team-title">Zwoote</h1>
+                </header>
+
+                <!-- MATCH -->
+                <section class="team-match-section">
+                    <div class="match-block" id="match-team2"></div>
+                </section>
+
+                <!-- GRID -->
+                <section class="team-grid-section">
+                    <div class="grid team-grid">
+
+                        <a href="team2/spieler2.html" class="tile">
+                            <span>🏃‍♂️</span>
+                            <h2>Spieler</h2>
+                        </a>
+
+                        <a href="team2/aktsplt2.html" class="tile">
+                            <span>📆</span>
+                            <h2>aktueller</h2>
+                            <h2>Spieltag und Tabelle</h2>
+                        </a>
+
+                        <a href="team2/spiel2.html" class="tile">
+                            <span>⚽</span>
+                            <h2>Spielplan</h2>
+                            <h2>Zwoote</h2>
+                        </a>
+
+                        <a href="team2/stat2.html" class="tile">
+                            <span>📊</span>
+                            <h2>Statistik</h2>
+                            <h2>Zwoote</h2>
+                        </a>
+                        <a href="team2/spielberichte/zwoote.html" class="tile">
+                            <span>🎬</span>
+                            <h2>Spielbericht</h2>
+                        </a>
+
+                    </div>
+                </section>
+
+                <!-- BUTTON -->
+                <div class="team-action">
+                    <a href="welcome.html" class="nav-button nav-back-fixed">
+    <span>⬅️</span>
+    Zurück
+</a>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="js/clock.js"></script>
+    <script src="js/fullscreen.js"></script>
+    <script src="js/matches.js"></script>
+    <script src="js/renderMatches.js"></script>
+
+    <script>
+        renderMatch("match-team2", matches.team2);
+
+        setInterval(() => {
+            if (typeof matches !== "undefined") {
+                renderMatch("match-team2", matches.team2);
+            }
+        }, 1000);
+    </script>
+
+</body>
+</html>

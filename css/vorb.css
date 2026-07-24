@@ -1,0 +1,81 @@
+/* =========================
+   VORBEREITUNGSPLAN
+========================= */
+
+.pdf-page1 {
+    min-height: 100vh;
+    background:
+        linear-gradient(
+            rgba(10,20,40,0.7),
+            rgba(5,10,20,0.9)
+        ),
+        url("../Dateien/platz1.jpg")
+        center center / cover no-repeat;
+
+    color: white;
+}
+
+/* Layout */
+
+.pdf-layout1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    height: 100vh;
+
+    padding-top: 40px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+/* Titel */
+
+.pdf-title1 {
+    font-size: clamp(48px, 6vw, 90px);
+    font-weight: 900;
+    color: rgb(247,184,0);
+
+    text-align: center;
+
+    margin-bottom: 20px;
+}
+
+/* Bildbereich */
+
+.pdf-container1 {
+    flex: 1;
+
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Bild */
+
+.pdf-image {
+    max-width: 100%;
+    max-height: 100%;
+
+    object-fit: contain;
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 0 25px rgba(0,0,0,.4);
+}
+
+/* Footer */
+
+.pdf-footer1 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+    font-size: 22px;
+
+    color: #e5e7eb;
+
+    text-align: center;
+}

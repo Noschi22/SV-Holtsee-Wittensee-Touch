@@ -1,0 +1,147 @@
+@media (max-width: 1200px) {
+    .datetime-card {
+        min-width: 200px;
+        padding: 11px 14px 10px;
+    }
+
+    .date-text {
+        font-size: 14px;
+    }
+
+    #clock-main {
+        font-size: 44px;
+    }
+
+    #clock-sec {
+        font-size: 18px;
+    }
+
+    .match-date-row {
+        font-size: 22px;
+    }
+
+    .team-name {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 900px) {
+    .page-shell {
+        padding: 16px 14px 30px;
+    }
+
+    .datetime-card {
+        position: static;
+        margin: 0 0 20px auto;
+        min-width: 190px;
+        padding: 10px 12px 9px;
+    }
+
+    .date-text {
+        font-size: 13px;
+    }
+
+    #clock-main {
+        font-size: 40px;
+    }
+
+    #clock-sec {
+        font-size: 17px;
+    }
+
+    .logo-container {
+        margin-top: 4px;
+        margin-bottom: 18px;
+    }
+
+    .animated-logo {
+        width: 100px;
+    }
+
+    .welcome-page .welcome-title {
+        margin-bottom: 24px;
+    }
+
+    .matches-section {
+        gap: 18px;
+    }
+
+    .match-card {
+        padding: 22px 16px 20px;
+    }
+
+    .match-teams-row {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .match-logo {
+        width: 66px;
+        height: 66px;
+    }
+
+    .vs-badge {
+        margin: 2px auto;
+        min-width: 46px;
+        height: 46px;
+        font-size: 20px;
+    }
+
+    .team-name {
+        font-size: 24px;
+    }
+
+    .match-countdown {
+        margin-top: 16px;
+        font-size: 18px;
+    }
+
+    .welcome-action {
+        margin-top: 30px;
+    }
+
+    .nav-button {
+        font-size: 22px;
+        padding: 15px 26px;
+    }
+}
+
+@media (max-width: 560px) {
+    .date-text {
+        font-size: 12px;
+    }
+
+    #clock-main {
+        font-size: 34px;
+    }
+
+    #clock-sec {
+        font-size: 15px;
+    }
+
+    .welcome-page .welcome-title {
+        font-size: 36px;
+    }
+
+    .match-date-row {
+        font-size: 18px;
+        line-height: 1.3;
+    }
+
+    .team-name {
+        font-size: 21px;
+    }
+
+    .match-countdown {
+        font-size: 16px;
+    }
+
+    .nav-button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .welcome-action {
+        width: 100%;
+    }
+}

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marci – SV Holtsee/Wittensee</title>
+    <link rel="stylesheet" href="../../css/main.css">
+</head>
+
+<body class="team-page bg-zwoote">
+
+    <a href="../spieler1.html" class="nav-button nav-back-fixed">
+        <span>⬅️</span>
+        Zurück
+    </a>
+
+    <div class="datetime-card">
+        <div class="date-text" id="date">--</div>
+        <div class="clock">
+            <span id="clock-main">--:--</span>
+            <span id="clock-sec">--</span>
+        </div>
+    </div>
+
+    <div class="page-shell">
+        <div class="page-content team-page-content">
+            <main class="team-layout">
+
+                <header class="team-header">
+                    <div class="logo-container team-logo-top">
+                        <img src="../../assets/logo.png" class="animated-logo" alt="SV Holtsee/Wittensee Logo">
+                    </div>
+                </header>
+
+                <section class="player-sheet-section">
+                    <div class="player-profile-card">
+
+                        <div class="player-profile-topbar">
+                            <h1 class="player-profile-name" id="player_name">Kevin</h1>
+
+                            <div class="player-profile-since-card">
+                                <span class="player-profile-since-label">Spielberechtigt seit</span>
+                                <span class="player-profile-since-value" id="player_seit">2021</span>
+                            </div>
+                        </div>
+
+                        <div class="player-profile-content">
+
+                            <div class="player-profile-photo-wrap">
+                                <img
+                                    src="../img/silh.png"
+                                    class="player-profile-photo"
+                                    id="player_bild"
+                                    alt="Kevin"
+                                >
+                                <span class="player-profile-number" id="player_nummer">22</span>
+                                <span class="player-profile-position" id="player_position">ST</span>
+                            </div>
+
+                            <div class="player-profile-stats-area">
+
+                                <div class="player-stats-header-grid">
+                                    <div class="player-stats-team-head"></div>
+
+                                    <div class="player-stats-head-cell">
+                                        <span class="player-stats-icon">🕒</span>
+                                        <span class="player-stats-head-text">Minuten</span>
+                                    </div>
+
+                                    <div class="player-stats-head-cell">
+                                        <span class="player-stats-icon">⚽</span>
+                                        <span class="player-stats-head-text">Tore</span>
+                                    </div>
+
+                                    <div class="player-stats-head-cell">
+                                        <span class="player-stats-icon">🎯</span>
+                                        <span class="player-stats-head-text">Vorlagen</span>
+                                    </div>
+
+                                    <div class="player-stats-head-cell">
+                                        <span class="player-stats-icon">🟨</span>
+                                        <span class="player-stats-head-text">Gelb</span>
+                                    </div>
+
+                                    <div class="player-stats-head-cell">
+                                        <span class="player-stats-icon">🟨🟥</span>
+                                        <span class="player-stats-head-text">Gelb-Rot</span>
+                                    </div>
+
+                                    <div class="player-stats-head-cell">
+                                        <span class="player-stats-icon">🟥</span>
+                                        <span class="player-stats-head-text">Rot</span>
+                                    </div>
+                                </div>
+
+                                <!-- Liga -->
+                                <div class="player-stats-row-card liga-row">
+                                    <div class="player-stats-team-label">Liga</div>
+                                    <div class="player-stats-value-cell" id="min_liga">0</div>
+                                    <div class="player-stats-value-cell" id="tore_liga">0</div>
+                                    <div class="player-stats-value-cell" id="vorlagen_liga">0</div>
+                                    <div class="player-stats-value-cell" id="gelb_liga">0</div>
+                                    <div class="player-stats-value-cell" id="gelbrot_liga">0</div>
+                                    <div class="player-stats-value-cell" id="rot_liga">0</div>
+                                </div>
+
+                                <!-- Zwoote -->
+                                <div class="player-stats-row-card zwoote-row">
+                                    <div class="player-stats-team-label">Zwoote</div>
+                                    <div class="player-stats-value-cell" id="min_zwoote">0</div>
+                                    <div class="player-stats-value-cell" id="tore_zwoote">0</div>
+                                    <div class="player-stats-value-cell" id="vorlagen_zwoote">0</div>
+                                    <div class="player-stats-value-cell" id="gelb_zwoote">0</div>
+                                    <div class="player-stats-value-cell" id="gelbrot_zwoote">0</div>
+                                    <div class="player-stats-value-cell" id="rot_zwoote">0</div>
+                                </div>
+
+                                <!-- Gesamt -->
+                                <div class="player-stats-row-card total-row">
+                                    <div class="player-stats-team-label">Gesamt</div>
+                                    <div class="player-stats-value-cell" id="min_total">0</div>
+                                    <div class="player-stats-value-cell" id="tore_total">0</div>
+                                    <div class="player-stats-value-cell" id="vorlagen_total">0</div>
+                                    <div class="player-stats-value-cell" id="gelb_total">0</div>
+                                    <div class="player-stats-value-cell" id="gelbrot_total">0</div>
+                                    <div class="player-stats-value-cell" id="rot_total">0</div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+            </main>
+        </div>
+    </div>
+
+    <script src="../../js/clock.js"></script>
+    <script src="../../js/fullscreen.js"></script>
+    <script src="../../js/spieler.js"></script>
+    <script>
+        loadPlayer("kevin");
+    </script>
+
+</body>
+</html>

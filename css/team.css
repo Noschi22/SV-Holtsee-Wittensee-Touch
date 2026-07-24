@@ -1,0 +1,169 @@
+.team-page {
+    background-color: #071633;
+}
+
+.bg-liga {
+    background:
+        linear-gradient(rgba(6, 20, 49, 0.72), rgba(3, 16, 40, 0.82)),
+        url("../team1/img/hintergrund1.jpg") center center / cover no-repeat fixed;
+}
+
+.bg-zwoote {
+    background:
+        linear-gradient(rgba(6, 20, 49, 0.72), rgba(3, 16, 40, 0.82)),
+        url("../team2/img/hintergrund2.jpg") center center / cover no-repeat fixed;
+}
+
+.team-page-content {
+    min-height: 100vh;
+    background: transparent;
+    padding-top: 50px;
+}
+
+.team-layout {
+    width: 100%;
+    max-width: 1420px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.team-header {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 70px;
+    padding-top: 14px;
+}
+
+.team-title {
+    margin: 8px 0 0;
+    font-size: clamp(42px, 4.2vw, 68px);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-primary);
+    text-shadow: 0 6px 18px rgba(0, 0, 0, 0.24);
+}
+
+.team-match-section {
+    width: 100%;
+    margin-bottom: 100px;
+}
+
+.team-match-section .match-block {
+    max-width: 100%;
+}
+
+.team-grid-section {
+    width: 100%;
+}
+
+.team-grid {
+    max-width: 1240px;
+    gap: 28px;
+}
+
+.team-grid .tile {
+    width: 100%;
+    max-width: 260px;
+    min-height: 200px;
+    backdrop-filter: blur(3px);
+}
+
+.team-grid .tile span {
+    font-size: 56px;
+    height: 76px;
+}
+
+.team-grid .tile h2 {
+    font-size: 26px;
+}
+
+.team-action {
+    display: flex;
+    justify-content: center;
+    margin-top: 34px;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 1100px) {
+    .team-title {
+        font-size: 50px;
+    }
+
+    .team-grid {
+        max-width: 1040px;
+        gap: 22px;
+    }
+}
+
+@media (max-width: 900px) {
+    .team-page-content {
+        padding-top: 16px;
+    }
+
+    .team-title {
+        font-size: 40px;
+    }
+
+    .team-match-section {
+        margin-bottom: 22px;
+    }
+
+    .team-grid {
+        gap: 18px;
+    }
+
+    .team-grid .tile {
+        max-width: 250px;
+        min-height: 190px;
+    }
+
+    .team-action {
+        margin-top: 28px;
+    }
+}
+
+@media (max-width: 560px) {
+    .team-title {
+        font-size: 34px;
+    }
+
+    .team-grid .tile h2 {
+        font-size: 22px;
+    }
+
+    .team-grid .tile span {
+        font-size: 48px;
+        height: 64px;
+    }
+}
+
+.team-widget-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.widget-wrap {
+    width: 100%;
+    max-width: 1100px;
+    margin: 16px auto 24px;
+}
+
+.fussballde_widget {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 0 28px rgba(0,0,0,0.38);
+}
+
+.team-logo-top {
+    margin-top: 6px;
+    margin-bottom: 14px;
+}
+
+.team-logo-top .animated-logo {
+    width: 96px;
+}

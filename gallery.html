@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Galerie</title>
+
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/gallery.css">
+
+<script src="js/clock.js" defer></script>
+<script src="js/gallery.js" defer></script>
+</head>
+
+<body>
+
+<!-- 🕒 DATUM & UHR -->
+<div class="datetime-card">
+    <div class="date-text" id="date">--</div>
+    <div class="clock">
+        <span id="clock-main">--:--</span>
+        <span id="clock-sec">--</span>
+    </div>
+</div>
+
+<div class="overlay"></div>
+
+<header>
+    <h1>⚽ Fotogalerie ⚽</h1>
+    <p>Ein paar allgemeine Eindrücke</p>
+</header>
+
+<!-- 📅 DATUM-AUSWAHL -->
+<div class="gallery-tabs">
+    <button data-gallery="datum1" class="active">01.06.2026</button>
+    <button data-gallery="datum2">02.06.2026</button>
+</div>
+
+<div class="coverflow-container">
+
+    <button class="nav prev">&#10094;</button>
+
+    <!-- 📸 GALERIE DATUM 1 -->
+    <div class="coverflow" data-gallery-group="datum1">
+
+        <div class="cover">
+            <img src="Dateien/Bilder/datum1/bild1.jpeg" alt="">
+        </div>
+
+        <div class="cover">
+            <img src="Dateien/Bilder/datum1/bild2.jpeg" alt="">
+        </div>
+
+        <div class="cover">
+            <img src="Dateien/Bilder/datum1/bild3.jpeg" alt="">
+        </div>
+
+    </div>
+
+    <!-- 📸 GALERIE DATUM 2 -->
+    <div class="coverflow hidden" data-gallery-group="datum2">
+
+        <div class="cover">
+            <img src="Dateien/Bilder/datum2/bild1.jpeg" alt="">
+        </div>
+
+        <div class="cover">
+            <img src="Dateien/Bilder/datum2/bild2.jpeg" alt="">
+        </div>
+
+        <div class="cover">
+            <img src="Dateien/Bilder/datum2/bild3.jpeg" alt="">
+        </div>
+
+    </div>
+
+
+    <button class="nav next">&#10095;</button>
+
+</div>
+
+<!-- 🔙 BACK BUTTON -->
+<a href="welcome.html" class="nav-button nav-back-fixed">
+    <span>⬅️</span>
+    zurück
+</a>
+
+</body>
+</html>

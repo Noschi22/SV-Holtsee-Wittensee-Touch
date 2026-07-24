@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spielbericht – SV Holtsee/Wittensee</title>
+    <link rel="stylesheet" href="../../css/main.css">
+</head>
+
+<body class="team-page bg-zwoote">
+
+    <a href="../../team1.html" class="nav-button nav-back-fixed">
+        <span>⬅️</span>
+        Zurück
+    </a>
+
+    
+    <div class="datetime-card">
+        <div class="date-text" id="date">--</div>
+        <div class="clock">
+            <span id="clock-main">--:--</span>
+            <span id="clock-sec">--</span>
+        </div>
+    </div>
+
+    <div class="page-shell">
+        <div class="page-content team-page-content">
+            <main class="team-layout">
+
+                <header class="team-header">
+                    <div class="logo-container team-logo-top">
+                        <img src="../../assets/logo.png" class="animated-logo" alt="SV Holtsee/Wittensee Logo">
+                    </div>
+                </header>
+
+                <section class="match-report-section">
+                    <div class="match-report-card">
+
+                        <div class="match-report-topbar">
+                            <div class="match-report-title-wrap">
+                                <h1 class="match-report-title" id="bericht_titel">Spielbericht</h1>
+                                <div class="match-report-meta">
+                                    <span id="bericht_datum">--</span>
+                                    <span>•</span>
+                                    <span id="bericht_team">--</span>
+                                </div>
+                            </div>
+
+                            <div class="match-report-result-card">
+                                <span class="match-report-result-label">Endstand</span>
+                                <span class="match-report-result-value" id="bericht_ergebnis">--</span>
+                            </div>
+                        </div>
+
+                        <div class="match-report-fixture">
+                          <div class="match-report-club">
+                            <img src="../../assets/logo.png" class="match-report-team-logo" id="bericht_team1_logo" alt="Team 1 Logo">
+                            <span class="match-report-team-name" id="bericht_team1_name">--</span>
+                          </div>
+
+                        <div class="match-report-vs">vs</div>
+
+                        <div class="match-report-club">
+                           <img src="../img/gegner.png" class="match-report-team-logo" id="bericht_team2_logo" alt="Team 2 Logo">
+                           <span class="match-report-team-name" id="bericht_team2_name">--</span>
+                         </div>
+                       </div>
+
+                        <div class="match-report-content">
+
+                            <div class="match-report-left">
+                                <div class="match-report-image-card">
+                                    <img src="../img/spielbericht-default.jpg" id="bericht_bild" class="match-report-image" alt="Spielbild">
+                                </div>
+
+                                <div class="match-report-box">
+                                    <h2 class="match-report-box-title">Torschützen</h2>
+                                    <div class="scorer-list" id="bericht_torschuetzen"></div>
+                                </div>
+
+                                <div class="match-report-box">
+                                    <h2 class="match-report-box-title">Besonderheiten</h2>
+                                    <div class="special-list" id="bericht_besonderheiten"></div>
+                                </div>
+                            </div>
+
+                            <div class="match-report-right">
+
+                                <div class="match-report-box">
+                                    <h2 class="match-report-box-title">Aufstellung</h2>
+
+                                    <div class="lineup-layout">
+                                        <div class="pitch-wrap">
+                                            <div class="football-pitch">
+                                                <div class="pitch-overlay">
+                                                    <div class="penalty-box top"></div>
+                                                    <div class="goal-box top"></div>
+                                                    <div class="penalty-spot top"></div>
+                                                    <div class="center-spot"></div>
+                                                    <div class="center-circle"></div>
+                                                    <div class="penalty-box bottom"></div>
+                                                    <div class="goal-box bottom"></div>
+                                                    <div class="penalty-spot bottom"></div>
+                                                </div>
+
+                                                <div class="pitch-players" id="bericht_pitch"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="bench-wrap">
+                                            <h3 class="lineup-subtitle">Ersatzbank</h3>
+                                            <ul class="lineup-list bench-list" id="bericht_bank"></ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="match-report-box">
+                                    <h2 class="match-report-box-title">Trainer</h2>
+                                    <div class="trainer-box" id="bericht_trainer">--</div>
+                                </div>
+
+                                <div class="match-report-box">
+                                    <h2 class="match-report-box-title">Spielbericht</h2>
+                                    <div class="report-text" id="bericht_text">--</div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </section>
+
+            </main>
+        </div>
+    </div>
+
+    <script src="../../js/clock.js"></script>
+    <script src="../../js/fullscreen.js"></script>
+    <script src="../../js/spielbericht-template.js"></script>
+    <script src="../../js/spielberichte/liga.js"></script>
+</body>
+</html>

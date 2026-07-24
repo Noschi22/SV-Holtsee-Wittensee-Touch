@@ -1,0 +1,87 @@
+/* =========================
+   GESAMTSTATISTIK
+========================= */
+
+.pdf-page1::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background: url("../Dateien/platz1.jpg");
+    background-repeat: repeat;
+    background-size: 350px auto;
+
+    opacity: 0.15;
+    z-index: -1;
+}
+
+.pdf-page1 {
+    background: #08111f;
+}
+/* Layout */
+
+.pdf-layout1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+/* Titel */
+
+.pdf-title1 {
+    font-size: clamp(48px, 6vw, 90px);
+    font-weight: 900;
+    color: rgb(247,184,0);
+
+    margin-bottom: 15px;
+
+    text-align: center;
+}
+
+/* Aktualisiert */
+
+.pdf-footer1 {
+    font-size: 22px;
+    color: #e5e7eb;
+
+    margin-bottom: 25px;
+
+    text-align: center;
+}
+
+/* Bilderbereich */
+
+.pdf-container1 {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 40px;
+
+    padding: 0 30px 50px;
+}
+
+/* Statistikbilder */
+
+.stat-image {
+    width: 95%;
+    max-width: 1800px;
+    height: auto;
+
+    border-radius: 20px;
+
+    background: rgba(255,255,255,0.08);
+
+    padding: 15px;
+
+    backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.4);
+}

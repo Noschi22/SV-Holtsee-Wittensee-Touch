@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spieler – SV Holtsee/Wittensee</title>
+
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+
+<body class="team-page bg-zwoote">
+
+    <!-- 🔙 Zurück -->
+    <a href="../team2.html" class="nav-button nav-back-fixed">
+        <span>⬅️</span>
+        Zurück
+    </a>
+
+    <!-- 🕒 Uhr -->
+    <div class="datetime-card">
+        <div class="date-text" id="date">--</div>
+        <div class="clock">
+            <span id="clock-main">--:--</span>
+            <span id="clock-sec">--</span>
+        </div>
+    </div>
+
+    <div class="page-shell">
+        <div class="page-content team-page-content">
+            <main class="team-layout">
+
+                <!-- HEADER -->
+                <header class="team-header">
+                    <div class="logo-container team-logo-top">
+                        <img src="../assets/logo.png" class="animated-logo" alt="Logo">
+                    </div>
+
+                    <h1 class="team-title">Spieler Zwoote</h1>
+                </header>
+
+                <!-- FILTER -->
+                <section class="team-filter-section">
+                    <div class="filter-bar">
+                        <button onclick="filterPlayers('all', this)" class="active">Alle</button>
+                        <button onclick="filterPlayers('tw', this)">Torwart</button>
+                        <button onclick="filterPlayers('abw', this)">Abwehr</button>
+                        <button onclick="filterPlayers('mf', this)">Mittelfeld</button>
+                        <button onclick="filterPlayers('st', this)">Sturm</button>
+                    </div>
+                </section>
+
+                <!-- SPIELER GRID -->
+                <section class="team-player-section">
+                    <div class="player-grid">
+
+                        <!-- SPIELER (JETZT KLICKBAR) -->
+                       
+                        <a href="spieler/basti.html"
+                           class="player-tile"
+                           data-position="abw">
+
+                            <div class="player-img">
+                                <img src="img/basti.jpg" alt="Basti">
+                                <span class="number">18</span>
+                                <span class="pos">Abw</span>
+                            </div>
+
+                            <span class="player-name">Basti</span>
+                        </a>
+                       
+                        <a href="spieler/flo.html"
+                           class="player-tile"
+                           data-position="abw">
+
+                            <div class="player-img">
+                                <img src="img/flo.jpg" alt="Flo">
+                                <span class="number">2</span>
+                                <span class="pos">Abw</span>
+                            </div>
+
+                            <span class="player-name">Flo</span>
+                        </a>
+
+                        <a href="spieler/steffen.html"
+                           class="player-tile"
+                           data-position="abw">
+
+                            <div class="player-img">
+                                <img src="img/steffen.jpg" alt="Steffen">
+                                <span class="number">3</span>
+                                <span class="pos">Abw</span>
+                            </div>
+
+                            <span class="player-name">Steffen</span>
+                        </a>
+
+                        <a href="spieler/jonny.html"
+                           class="player-tile"
+                           data-position="mf">
+
+                            <div class="player-img">
+                                <img src="img/jonny.jpg" alt="Jonny">
+                                <span class="number">7</span>
+                                <span class="pos">MF</span>
+                            </div>
+
+                            <span class="player-name">Jonny</span>
+                        </a>
+
+                        
+                        <!-- Weitere Spieler einfach kopieren -->
+
+                    </div>
+                </section>
+
+            </main>
+        </div>
+    </div>
+
+    <script src="../js/clock.js"></script>
+    <script src="../js/fullscreen.js"></script>
+
+    <!-- FILTER SCRIPT -->
+    <script>
+        function filterPlayers(pos, btn) {
+            document.querySelectorAll('.filter-bar button')
+                .forEach(b => b.classList.remove('active'));
+
+            btn.classList.add('active');
+
+            document.querySelectorAll('.player-tile').forEach(p => {
+                p.style.display =
+                    pos === 'all' || p.dataset.position === pos
+                        ? 'flex'
+                        : 'none';
+            });
+        }
+    </script>
+
+</body>
+</html>

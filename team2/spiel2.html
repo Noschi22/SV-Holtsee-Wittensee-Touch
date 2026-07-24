@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spielplan Zwoote</title>
+
+<link rel="stylesheet" href="../css/main.css">
+<link rel="stylesheet" href="../css/spiel.css">
+
+<script src="../js/clock.js" defer></script>
+
+</head>
+
+<body class="pdf-page1">
+
+<!-- 🔙 BACK BUTTON -->
+<a href="../team2.html" class="nav-button nav-back-fixed">
+    <span>⬅️</span>
+    zurück
+</a>
+
+<!-- 🕒 DATUM & UHR -->
+<div class="datetime-card">
+    <div class="date-text" id="date">--</div>
+    <div class="clock">
+        <span id="clock-main">--:--</span>
+        <span id="clock-sec">--</span>
+    </div>
+</div>
+
+<div class="page-shell">
+
+    <div class="page-content pdf-layout1">
+
+        <!-- Titel -->
+        <h1 class="pdf-title1">Spielplan Zwoote</h1>
+
+        <!-- Aktualisiert -->
+        <div class="pdf-footer1">
+            <span>aktualisiert am </span>
+            <span id="info-date"></span>
+        </div>
+
+        <!-- Spielplan -->
+        <div class="pdf-container1">
+
+            <img src="../Dateien/spiel2.png"
+                 alt="Spielplan Zwoote"
+                 class="stat-image">
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+const lastModified = new Date(document.lastModified);
+
+const options = {
+    weekday: 'long',
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric'
+};
+
+const formattedDate = lastModified.toLocaleDateString('de-DE', options);
+
+document.getElementById("info-date").textContent = formattedDate;
+</script>
+
+</body>
+</html>

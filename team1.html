@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liga – SV Holtsee/Wittensee</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+
+<body class="team-page bg-liga">
+
+    <div class="datetime-card">
+        <div class="date-text" id="date">--</div>
+        <div class="clock">
+            <span id="clock-main">--:--</span>
+            <span id="clock-sec">--</span>
+        </div>
+    </div>
+
+    <div class="page-shell">
+        <div class="page-content team-page-content">
+            <main class="team-layout">
+
+                <header class="team-header">
+                    <h1 class="team-title">Liga</h1>
+                </header>
+
+                <section class="team-match-section">
+                    <div class="match-block" id="match-team1"></div>
+                </section>
+
+                <section class="team-grid-section">
+                    <div class="grid team-grid">
+                        <a href="team1/spieler1.html" class="tile">
+                            <span>🏃‍♂️</span>
+                            <h2>Spieler</h2>
+                        </a>
+
+                        <a href="team1/aktsp1.html" class="tile">
+                            <span>📆</span>
+                            <h2>aktueller</h2>
+                            <h2>Spieltag und Tabelle</h2>
+                        </a>
+
+                        <a href="team1/spiel1.html" class="tile">
+                            <span>⚽</span>
+                            <h2>Spielplan</h2>
+                            <h2>Liga</h2>
+                        </a>
+
+                        <a href="team1/stat1.html" class="tile">
+                            <span>📊</span>
+                            <h2>Statistik</h2>
+                            <h2>Liga</h2>
+                        </a>
+
+                        <a href="team1/spielberichte/liga.html" class="tile">
+                            <span>🎬</span>
+                            <h2>Spielbericht</h2>
+                        </a>
+
+
+                    </div>
+                </section>
+
+                <div class="team-action">
+                    <a href="welcome.html" class="nav-button nav-back-fixed">
+    <span>⬅️</span>
+    Zurück
+</a>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <script src="js/clock.js"></script>
+    <script src="js/fullscreen.js"></script>
+    <script src="js/matches.js"></script>
+    <script src="js/renderMatches.js"></script>
+
+    <script>
+        renderMatch("match-team1", matches.team1);
+
+        setInterval(() => {
+            if (typeof matches !== "undefined") {
+                renderMatch("match-team1", matches.team1);
+            }
+        }, 1000);
+    </script>
+
+</body>
+</html>

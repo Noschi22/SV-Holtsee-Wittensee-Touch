@@ -1,0 +1,17 @@
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 26px;
+
+    /* 5 Buttons à 280px + 4 Abstände à 26px */
+    max-width: 1504px;
+
+    width: 100%;
+    margin: 0 auto;
+}
+
+.grid .tile {
+    flex: 0 0 280px;   /* feste Breite */
+    height: 220px;     /* optional */
+}

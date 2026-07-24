@@ -1,0 +1,73 @@
+:root {
+    --color-primary: rgb(247, 184, 0);
+    --color-primary-dark: rgb(230, 165, 0);
+
+    --bg-main: #071633;
+    --bg-deep: #020b1d;
+    --bg-card: rgba(31, 44, 70, 0.94);
+    --bg-card-hover: rgba(43, 59, 92, 0.98);
+
+    --text-main: #ffffff;
+    --text-soft: #d8dee9;
+    --text-muted: #94a3b8;
+
+    --shadow-soft: 0 10px 22px rgba(0, 0, 0, 0.28);
+    --shadow-strong: 0 14px 36px rgba(0, 0, 0, 0.42);
+
+    --radius-lg: 20px;
+    --radius-xl: 26px;
+
+    --container-width: 1420px;
+    --transition-fast: 0.18s ease;
+    --transition-normal: 0.25s ease;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text-main);
+    background:
+        radial-gradient(circle at top, rgba(20, 45, 90, 0.45), transparent 35%),
+        linear-gradient(180deg, #061431 0%, #031028 100%);
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+}
+
+@keyframes float {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-8px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0%   { opacity: 1; }
+    50%  { opacity: 0.9; }
+    100% { opacity: 1; }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

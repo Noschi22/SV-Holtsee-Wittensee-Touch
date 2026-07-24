@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aktueller Spieltag – Liga</title>
+
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="https://www.fussball.de/widgets.js"></script>
+
+</head>
+
+<body class="team-page bg-liga">
+
+    <!-- DATUM & UHR -->
+    <div class="datetime-card">
+        <div class="date-text" id="date">--</div>
+        <div class="clock">
+            <span id="clock-main">--:--</span>
+            <span id="clock-sec">--</span>
+        </div>
+    </div>
+
+    <div class="page-shell">
+        <div class="page-content team-page-content">
+            <main class="team-layout">
+
+                <!-- HEADER -->
+                <header class="team-header">
+<div class="logo-container team-logo-top">
+        <img src="../assets/logo.png" alt="SV Holtsee/Wittensee" class="animated-logo">
+    </div>
+
+
+<h1 class="team-title">aktueller Spieltag Liga</h1>
+</header>
+
+<!-- WIDGET -->
+       <section class="team-widget-section">
+       <div class="widget-wrap">
+       <div 
+  class="fussballde_widget"
+  data-id="a12fbcea-1fa5-469f-aeaf-7df504940d45"
+  data-type="competition"
+  style="width: 100%"
+></div>
+   </div>
+   </section>
+
+<!-- BUTTON -->
+     <div class="team-action">
+     <a href="../team1.html" class="nav-button nav-back-fixed">
+     <span>⬅️</span>
+     Zurück
+     </a>
+     </div>
+
+</main>
+        </div>
+    </div>
+
+    <script src="../js/clock.js"></script>
+    <script src="../js/fullscreen.js"></script>
+
+</body>
+</html>

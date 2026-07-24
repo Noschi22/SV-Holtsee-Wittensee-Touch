@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Willkommen – SV Holtsee/Wittensee</title>
+    <link rel="stylesheet" href="css/main.css">
+   </head>
+
+<body class="welcome-page">
+
+    <div class="datetime-card">
+        <div class="date-text" id="date">--</div>
+        <div class="clock">
+            <span id="clock-main">--:--</span>
+            <span id="clock-sec">--</span>
+        </div>
+    </div>
+
+    <div class="page-shell">
+        <main class="welcome">
+            <div class="logo-container">
+                <img src="assets/logo.png" class="animated-logo" alt="SV Holtsee/Wittensee Logo">
+            </div>
+
+            <h1 class="welcome-title">Herzlich Willkommen</h1>
+
+            <section class="matches-section">
+                <div class="match-block" id="match-team2"></div>
+                <div class="match-block" id="match-team1"></div>
+            </section>
+
+            <div class="welcome-action">
+                <a href="welcome.html" class="nav-button">
+                    <span>➡️</span>
+                    Weiter
+                </a>
+            </div>
+        </main>
+    </div>
+
+    <!-- Versteckter Admin-Hotspot -->
+    <div id="admin-hotspot" aria-hidden="true"></div>
+
+    <!-- Admin-Overlay -->
+    <div id="admin-overlay">
+        <div id="admin-box">
+            <h2>Admin-Zugang</h2>
+
+            <div id="pin-display">••••</div>
+
+            <div class="pin-pad">
+                <button class="pin-key" type="button" data-key="1">1</button>
+                <button class="pin-key" type="button" data-key="2">2</button>
+                <button class="pin-key" type="button" data-key="3">3</button>
+
+                <button class="pin-key" type="button" data-key="4">4</button>
+                <button class="pin-key" type="button" data-key="5">5</button>
+                <button class="pin-key" type="button" data-key="6">6</button>
+
+                <button class="pin-key" type="button" data-key="7">7</button>
+                <button class="pin-key" type="button" data-key="8">8</button>
+                <button class="pin-key" type="button" data-key="9">9</button>
+
+                <button class="pin-key light" type="button" id="pin-clear">C</button>
+                <button class="pin-key" type="button" data-key="0">0</button>
+                <button class="pin-key light" type="button" id="pin-delete">⌫</button>
+            </div>
+
+            <button class="admin-btn primary" id="admin-login" type="button">Freischalten</button>
+
+            <div id="admin-error"></div>
+
+            <div class="admin-actions" id="admin-actions">
+                <button class="admin-btn primary" type="button" id="admin-reload">Seite neu laden</button>
+                <button class="admin-btn light" type="button" id="admin-home">Zur Startseite</button>
+                <button class="admin-btn danger" type="button" id="admin-exit">Kiosk verlassen</button>
+                <button class="admin-btn light" type="button" id="admin-close">Schließen</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/clock.js"></script>
+    <script src="js/fullscreen.js"></script>
+    <script src="js/matches.js"></script>
+    <script src="js/renderMatches.js"></script>
+
+    <script>
+        if (typeof matches !== "undefined" && typeof renderMatch === "function") {
+            renderMatch("match-team2", matches.team2);
+            renderMatch("match-team1", matches.team1);
+
+            setInterval(() => {
+                renderMatch("match-team1", matches.team1);
+                renderMatch("match-team2", matches.team2);
+            }, 1000);
+        }
+    </script>
+
+<script src="js/admin.js"></script>
+
+</body>
+</html>
