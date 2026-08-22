@@ -1,87 +1,140 @@
 /* =========================
-   GESAMTSTATISTIK
+   STATISTIK LIGA – PDF
 ========================= */
+
+/* Hintergrundbild */
 
 .pdf-page1::before {
     content: "";
     position: fixed;
     inset: 0;
 
-    background: url("../Dateien/platz1.jpg");
+    background-image: url("../Dateien/platz1.jpg");
     background-repeat: repeat;
     background-size: 350px auto;
 
     opacity: 0.15;
     z-index: -1;
+    pointer-events: none;
 }
+
+/* Seitenhintergrund */
 
 .pdf-page1 {
-    background: #08111f;
+    min-height: 100vh;
+    margin: 0;
+
+    background-color: #08111f;
+
+    overflow: hidden;
 }
-/* Layout */
+
+/* Gesamtes Layout */
 
 .pdf-layout1 {
+    width: 100%;
+    height: 100vh;
+
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    padding-top: 40px;
-    padding-bottom: 40px;
+    box-sizing: border-box;
+
+    padding: 30px 30px 25px;
 }
 
 /* Titel */
 
 .pdf-title1 {
-    font-size: clamp(48px, 6vw, 90px);
-    font-weight: 900;
-    color: rgb(247,184,0);
+    flex-shrink: 0;
 
-    margin-bottom: 15px;
+    font-size: clamp(42px, 5vw, 75px);
+    font-weight: 900;
+    line-height: 1.05;
+
+    color: rgb(247, 184, 0);
+
+    margin: 0 0 10px;
 
     text-align: center;
+
+    text-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.55);
 }
 
-/* Aktualisiert */
+/* Aktualisierungsdatum */
 
 .pdf-footer1 {
+    flex-shrink: 0;
+
     font-size: 22px;
     color: #e5e7eb;
 
-    margin-bottom: 25px;
+    margin: 0 0 18px;
 
     text-align: center;
 }
 
-/* Bilderbereich */
+/* PDF-Bereich */
 
 .pdf-container1 {
-    width: 100%;
+    position: relative;
 
-    display: flex;
-    flex-direction: column;
+    flex: 1;
+    min-height: 0;
 
-    align-items: center;
-
-    gap: 40px;
-
-    padding: 0 30px 50px;
-}
-
-/* Statistikbilder */
-
-.stat-image {
     width: 95%;
     max-width: 1800px;
-    height: auto;
 
+    overflow: hidden;
+
+    box-sizing: border-box;
+
+    background: rgba(255, 255, 255, 0.98);
+
+    border: 3px solid rgb(247, 184, 0);
     border-radius: 20px;
 
-    background: rgba(255,255,255,0.08);
-
-    padding: 15px;
-
-    backdrop-filter: blur(10px);
-
     box-shadow:
-        0 10px 30px rgba(0,0,0,.4);
+        0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Eingebundene PDF */
+
+.stat-pdf {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    border: none;
+
+    background-color: #ffffff;
+}
+
+/* Anpassung für kleinere Bildschirme */
+
+@media (max-width: 900px) {
+    .pdf-layout1 {
+        padding: 20px 15px 15px;
+    }
+
+    .pdf-title1 {
+        font-size: clamp(34px, 6vw, 55px);
+        margin-bottom: 8px;
+    }
+
+    .pdf-footer1 {
+        font-size: 18px;
+        margin-bottom: 12px;
+    }
+
+    .pdf-container1 {
+        width: 100%;
+        border-radius: 12px;
+    }
 }

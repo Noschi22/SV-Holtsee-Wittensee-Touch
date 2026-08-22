@@ -1,88 +1,94 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gesamtstatistik</title>
+    <meta charset="UTF-8">
 
-<link rel="stylesheet" href="css/main.css">
-<link rel="stylesheet" href="css/stat.css">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-<script src="js/clock.js" defer></script>
+    <title>Gesamtstatistik</title>
 
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/stat.css">
+
+    <script src="js/clock.js" defer></script>
 </head>
 
 <body class="pdf-page1">
 
-<!-- 🔙 BACK BUTTON -->
-<a href="welcome.html" class="nav-button nav-back-fixed">
-    <span>⬅️</span>
-    zurück
-</a>
+    <!-- ZURÜCK -->
+    <a href="welcome.html"
+       class="nav-button nav-back-fixed">
+        <span>⬅️</span>
+        zurück
+    </a>
 
-<!-- 🕒 DATUM & UHR -->
-<div class="datetime-card">
-    <div class="date-text" id="date">--</div>
-    <div class="clock">
-        <span id="clock-main">--:--</span>
-        <span id="clock-sec">--</span>
+    <!-- DATUM UND UHR -->
+    <div class="datetime-card">
+        <div class="date-text" id="date">--</div>
+
+        <div class="clock">
+            <span id="clock-main">--:--</span>
+            <span id="clock-sec">--</span>
+        </div>
     </div>
-</div>
 
-<div class="page-shell">
+    <div class="page-shell">
 
-    <div class="page-content pdf-layout1">
+        <main class="page-content pdf-layout1">
 
-        <!-- Titel -->
-        <h1 class="pdf-title1">Gesamtstatistik</h1>
+            <h1 class="pdf-title1">
+                Gesamtstatistik
+            </h1>
 
-        <!-- Aktualisiert -->
-        <div class="pdf-footer1">
-            <span>aktualisiert am </span>
-            <span id="info-date"></span>
-        </div>
+            <div class="pdf-footer1">
+                <span>aktualisiert am </span>
+                <span id="info-date"></span>
+            </div>
 
-        <!-- Statistikseiten -->
-        <div class="pdf-container1">
+            <!-- PDF-ANZEIGE -->
+            <div class="pdf-container1">
 
-            <img
-                src="Dateien/stat conv 0.png"
-                alt="Gesamtstatistik Seite 1"
-                class="stat-image"
-            >
+                <iframe
+                    id="statistik-pdf"
+                    class="stat-pdf"
+                    title="Gesamtstatistik">
+                </iframe>
 
-            <img
-                src="Dateien/stat conv 1.png"
-                alt="Gesamtstatistik Seite 2"
-                class="stat-image"
-            >
+            </div>
 
-            <img
-                src="Dateien/stat conv 1.png"
-                alt="Gesamtstatistik Seite 3"
-                class="stat-image"
-            >
-
-        </div>
+        </main>
 
     </div>
 
-</div>
+    <script>
+        /*
+         * Aktualisierungsdatum anzeigen
+         */
+        const lastModified = new Date(document.lastModified);
 
-<script>
-const lastModified = new Date(document.lastModified);
+        const options = {
+            weekday: "long",
+            day: "2-digit",
+            month: "2-digit",
+            year: "numeric"
+        };
 
-const options = {
-    weekday: 'long',
-    day: '2-digit',
-    month: '2-digit',
-    year: 'numeric'
-};
+        document.getElementById("info-date").textContent =
+            lastModified.toLocaleDateString("de-DE", options);
 
-const formattedDate = lastModified.toLocaleDateString('de-DE', options);
+        /*
+         * PDF laden.
+         * Date.now() verhindert, dass eine alte
+         * Version aus dem Browser-Cache erscheint.
+         */
+        const pdfDatei = "Dateien/gesamtstatistik.pdf";
 
-document.getElementById("info-date").textContent = formattedDate;
-</script>
+        document.getElementById("statistik-pdf").src =
+            pdfDatei +
+            "?version=" + Date.now() +
+            "#toolbar=0&navpanes=0&scrollbar=1&view=FitH";
+    </script>
 
 </body>
 </html>

@@ -1,74 +1,121 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Spielplan Zwoote</title>
+    <meta charset="UTF-8">
 
-<link rel="stylesheet" href="../css/main.css">
-<link rel="stylesheet" href="../css/spiel.css">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-<script src="../js/clock.js" defer></script>
+    <title>Spielplan Zwoote</title>
 
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/spiel.css">
+
+    <script src="../js/clock.js" defer></script>
 </head>
 
 <body class="pdf-page1">
 
-<!-- 🔙 BACK BUTTON -->
-<a href="../team2.html" class="nav-button nav-back-fixed">
-    <span>⬅️</span>
-    zurück
-</a>
+    <!-- ZURÜCK -->
+    <a href="../team2.html"
+       class="nav-button nav-back-fixed">
+        <span>⬅️</span>
+        zurück
+    </a>
 
-<!-- 🕒 DATUM & UHR -->
-<div class="datetime-card">
-    <div class="date-text" id="date">--</div>
-    <div class="clock">
-        <span id="clock-main">--:--</span>
-        <span id="clock-sec">--</span>
-    </div>
-</div>
+    <!-- DATUM UND UHR -->
+    <div class="datetime-card">
+        <div class="date-text" id="date">--</div>
 
-<div class="page-shell">
-
-    <div class="page-content pdf-layout1">
-
-        <!-- Titel -->
-        <h1 class="pdf-title1">Spielplan Zwoote</h1>
-
-        <!-- Aktualisiert -->
-        <div class="pdf-footer1">
-            <span>aktualisiert am </span>
-            <span id="info-date"></span>
+        <div class="clock">
+            <span id="clock-main">--:--</span>
+            <span id="clock-sec">--</span>
         </div>
-
-        <!-- Spielplan -->
-        <div class="pdf-container1">
-
-            <img src="../Dateien/spiel2.png"
-                 alt="Spielplan Zwoote"
-                 class="stat-image">
-
-        </div>
-
     </div>
 
-</div>
+    <div class="page-shell">
 
-<script>
-const lastModified = new Date(document.lastModified);
+        <main class="page-content pdf-layout1">
 
-const options = {
-    weekday: 'long',
-    day: '2-digit',
-    month: '2-digit',
-    year: 'numeric'
-};
+            <h1 class="pdf-title1">
+                Spielplan Zwoote
+            </h1>
 
-const formattedDate = lastModified.toLocaleDateString('de-DE', options);
+            <div class="pdf-footer1">
+                <span>aktualisiert am </span>
+                <span id="info-date">--</span>
+            </div>
 
-document.getElementById("info-date").textContent = formattedDate;
-</script>
+            <!-- PDF-ANZEIGE -->
+            <div class="pdf-container1">
+
+                <iframe
+                    id="spielplan-pdf"
+                    class="stat-pdf"
+                    title="Spielplan Zwoote">
+                </iframe>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <script>
+        const pdfDatei = "../Dateien/spiel2.pdf";
+
+        /*
+         * PDF laden und eine alte Version
+         * aus dem Browser-Cache verhindern.
+         */
+        document.getElementById("spielplan-pdf").src =
+            pdfDatei +
+            "?version=" + Date.now() +
+            "#toolbar=0&navpanes=0&scrollbar=1&view=FitH";
+
+        /*
+         * Änderungsdatum der PDF anzeigen.
+         */
+        fetch(pdfDatei, {
+            method: "HEAD",
+            cache: "no-store"
+        })
+        .then(response => {
+            const datum = response.headers.get("Last-Modified");
+
+            if (!datum) {
+                throw new Error("Kein Änderungsdatum vorhanden");
+            }
+
+            const lastModified = new Date(datum);
+
+            const options = {
+                weekday: "long",
+                day: "2-digit",
+                month: "2-digit",
+                year: "numeric"
+            };
+
+            document.getElementById("info-date").textContent =
+                lastModified.toLocaleDateString("de-DE", options);
+        })
+        .catch(() => {
+            /*
+             * Ersatzwert beim lokalen Aufruf.
+             */
+            const lastModified = new Date(document.lastModified);
+
+            const options = {
+                weekday: "long",
+                day: "2-digit",
+                month: "2-digit",
+                year: "numeric"
+            };
+
+            document.getElementById("info-date").textContent =
+                lastModified.toLocaleDateString("de-DE", options);
+        });
+    </script>
 
 </body>
 </html>

@@ -1,73 +1,94 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Statistik Zwoote</title>
+    <meta charset="UTF-8">
 
-<link rel="stylesheet" href="../css/main.css">
-<link rel="stylesheet" href="../css/stat.css">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-<script src="../js/clock.js" defer></script>
+    <title>Statistik Zwoote</title>
+
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/stat.css">
+
+    <script src="../js/clock.js" defer></script>
 </head>
 
 <body class="pdf-page1">
 
-<a href="../team2.html" class="nav-button nav-back-fixed">
-    <span>⬅️</span>
-    zurück
-</a>
+    <!-- ZURÜCK ZUR ZWOOTEN -->
+    <a href="../team2.html"
+       class="nav-button nav-back-fixed">
+        <span>⬅️</span>
+        zurück
+    </a>
 
-<div class="datetime-card">
-    <div class="date-text" id="date">--</div>
-    <div class="clock">
-        <span id="clock-main">--:--</span>
-        <span id="clock-sec">--</span>
-    </div>
-</div>
+    <!-- DATUM UND UHR -->
+    <div class="datetime-card">
+        <div class="date-text" id="date">--</div>
 
-<div class="page-shell">
-    <div class="page-content pdf-layout1">
-
-        <h1 class="pdf-title1">Statistik Zwoote</h1>
-
-        <div class="pdf-footer1">
-            <span>aktualisiert am </span>
-            <span id="info-date"></span>
+        <div class="clock">
+            <span id="clock-main">--:--</span>
+            <span id="clock-sec">--</span>
         </div>
+    </div>
 
-        <div class="pdf-container1">
+    <div class="page-shell">
 
-            <img src="../Dateien/stat2 conv 0.png"
-                 alt="Statistik Zwoote Seite 1"
-                 class="stat-image">
+        <main class="page-content pdf-layout1">
 
-            <img src="../Dateien/stat2 conv 1.png"
-                 alt="Statistik Zwoote Seite 2"
-                 class="stat-image">
+            <h1 class="pdf-title1">
+                Statistik Zwoote
+            </h1>
 
-            <img src="../Dateien/stat2 conv 2.png"
-                 alt="Statistik Zwoote Seite 3"
-                 class="stat-image">
+            <div class="pdf-footer1">
+                <span>aktualisiert am </span>
+                <span id="info-date"></span>
+            </div>
 
-        </div>
+            <!-- PDF-ANZEIGE -->
+            <div class="pdf-container1">
+
+                <iframe
+                    id="statistik-pdf"
+                    class="stat-pdf"
+                    title="Statistik Zwoote">
+                </iframe>
+
+            </div>
+
+        </main>
 
     </div>
-</div>
 
-<script>
-const lastModified = new Date(document.lastModified);
+    <script>
+        /*
+         * Aktualisierungsdatum der HTML-Datei
+         */
+        const lastModified = new Date(document.lastModified);
 
-const options = {
-    weekday: "long",
-    day: "2-digit",
-    month: "2-digit",
-    year: "numeric"
-};
+        const options = {
+            weekday: "long",
+            day: "2-digit",
+            month: "2-digit",
+            year: "numeric"
+        };
 
-document.getElementById("info-date").textContent =
-    lastModified.toLocaleDateString("de-DE", options);
-</script>
+        document.getElementById("info-date").textContent =
+            lastModified.toLocaleDateString("de-DE", options);
+
+        /*
+         * PDF laden.
+         * Date.now() verhindert die Anzeige
+         * einer alten Version aus dem Cache.
+         */
+        const pdfDatei = "../Dateien/statistik-zwoote.pdf";
+
+        document.getElementById("statistik-pdf").src =
+            pdfDatei +
+            "?version=" + Date.now() +
+            "#toolbar=0&navpanes=0&scrollbar=1&view=FitH";
+    </script>
 
 </body>
 </html>
