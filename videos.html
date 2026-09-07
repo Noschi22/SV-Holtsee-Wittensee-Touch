@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Videos – SV Holtsee/Wittensee</title>
+
+    <link rel="stylesheet" href="css/videos.css">
+</head>
+
+<body>
+
+    <!-- Hintergrundabdunklung -->
+    <div class="overlay"></div>
+
+    <!-- Zurück zur Startseite -->
+    <a class="back-button" href="index.html">
+        &#10094; Zurück
+    </a>
+
+    <header>
+        <img
+            class="club-logo"
+            src="assets/logo.png"
+            alt="SV Holtsee/Wittensee"
+        >
+
+        <div>
+            <h1>Videos</h1>
+            <p>SV Holtsee/Wittensee</p>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- Video-Auswahl -->
+        <div class="video-tabs">
+
+            <button
+                type="button"
+                class="video-tab active"
+                data-video="Dateien/Videos/video1.mp4"
+                
+            >
+                Parade Ehrick
+            </button>
+
+            <button
+                type="button"
+                class="video-tab"
+                data-video="Dateien/Videos/video2.mp4"
+              
+            >
+                Tor 1
+            </button>
+
+            <button
+                type="button"
+                class="video-tab"
+                data-video="Dateien/Videos/video3.mp4"
+          
+            >
+                Video3
+            </button>
+
+        </div>
+
+        <!-- Videoplayer -->
+        <div class="video-container">
+
+            <video
+                id="video-player"
+                controls
+                playsinline
+                preload="metadata"
+            >
+                <source
+                    id="video-source"
+                    src="Dateien/Videos/video1.mp4"
+                    type="video/mp4"
+                >
+
+                Dein Browser unterstützt dieses Video nicht.
+            </video>
+
+        </div>
+
+    </main>
+
+    <script src="js/videos.js"></script>
+
+</body>
+
+</html>
