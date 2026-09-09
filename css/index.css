@@ -93,3 +93,56 @@
         font-size: 22px;
     }
 }
+
+/* =========================================================
+   SPIELERGEBNIS DEUTLICHER DARSTELLEN
+========================================================= */
+
+.match-result {
+    margin-top: 18px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+}
+
+
+.result-score {
+    font-size: 3rem;
+
+    font-weight: 900;
+
+    line-height: 1;
+
+    padding: 10px 24px;
+
+    border-radius: 14px;
+
+    background: rgba(0, 255, 85, 0.20);
+
+    border: 3px solid #00ff55;
+
+    box-shadow:
+        0 0 12px rgba(0, 255, 85, 0.6),
+        0 0 28px rgba(0, 255, 85, 0.30);
+
+    text-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+
+/* Countdown bewusst kleiner lassen */
+
+.match-countdown {
+    font-size: 1rem;
+}
+
+.match-result::before,
+.match-result::after,
+.result-score::before,
+.result-score::after {
+    content: none !important;
+    display: none !important;
+}
