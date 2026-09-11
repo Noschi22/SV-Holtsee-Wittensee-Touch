@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="css/videos.css">
 
     <script src="js/autoreturn.js" defer></script>
+    <script src="js/videos.js" defer></script>
 </head>
 
 <body>
@@ -22,12 +23,16 @@
     <!-- Hintergrundabdunklung -->
     <div class="overlay"></div>
 
-    <!-- Zurück zur Startseite -->
+
+    <!-- Zurück -->
     <a class="back-button" href="index.html">
         &#10094; Zurück
     </a>
 
+
+    <!-- Kopfbereich -->
     <header>
+
         <img
             class="club-logo"
             src="assets/logo.png"
@@ -38,35 +43,36 @@
             <h1>Videos</h1>
             <p>SV Holtsee/Wittensee</p>
         </div>
+
     </header>
+
 
     <main>
 
-        <!-- Video-Auswahl -->
+        <!-- VIDEOAUSWAHL -->
         <div class="video-tabs">
 
             <button
                 type="button"
                 class="video-tab active"
                 data-video="Dateien/Videos/video1.mp4"
-                
             >
                 Parade Ehrick
             </button>
+
 
             <button
                 type="button"
                 class="video-tab"
                 data-video="Dateien/Videos/parade.mp4"
-              
             >
                 und noch eine
             </button>
 
-            
         </div>
 
-        <!-- Videoplayer -->
+
+        <!-- VIDEOPLAYER -->
         <div class="video-container">
 
             <video
@@ -75,6 +81,7 @@
                 playsinline
                 preload="metadata"
             >
+
                 <source
                     id="video-source"
                     src="Dateien/Videos/video1.mp4"
@@ -82,13 +89,12 @@
                 >
 
                 Dein Browser unterstützt dieses Video nicht.
+
             </video>
 
         </div>
 
     </main>
-
-    <script src="js/videos.js"></script>
 
 </body>
 

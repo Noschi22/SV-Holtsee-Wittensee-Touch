@@ -1,27 +1,94 @@
-const videoButtons = document.querySelectorAll(".video-tab");
-const videoPlayer = document.getElementById("video-player");
-const videoSource = document.getElementById("video-source");
+/* =========================================================
+   VIDEO ELEMENTE
+========================================================= */
+
+const videoButtons =
+    document.querySelectorAll(".video-tab");
+
+
+const videoPlayer =
+    document.getElementById("video-player");
+
+
+const videoSource =
+    document.getElementById("video-source");
+
+
+/* =========================================================
+   VIDEO BUTTONS
+========================================================= */
 
 videoButtons.forEach(button => {
-    button.addEventListener("click", () => {
-        const selectedVideo = button.dataset.video;
 
-        // Aktiven Button markieren
+    button.addEventListener("click", () => {
+
+        const selectedVideo =
+            button.dataset.video;
+
+
+        /* Aktiven Button ändern */
+
         videoButtons.forEach(btn => {
+
             btn.classList.remove("active");
+
         });
+
 
         button.classList.add("active");
 
-        // Ausgewähltes Video laden
+
+        /* Video stoppen */
+
         videoPlayer.pause();
-        videoSource.src = selectedVideo;
+
+
+        /* Neues Video setzen */
+
+        videoSource.src =
+            selectedVideo;
+
+
+        /* Video neu laden */
+
         videoPlayer.load();
 
-        // Video nach dem Klick starten
-        videoPlayer.play().catch(() => {
-            // Falls automatisches Starten blockiert wird,
-            // kann der Play-Button benutzt werden.
+
+        /* Video starten */
+
+        videoPlayer.play().catch(error => {
+
+            console.log(
+                "Video konnte nicht automatisch gestartet werden:",
+                error
+            );
+
         });
+
     });
+
+});
+
+
+/* =========================================================
+   FEHLERMELDUNG
+========================================================= */
+
+videoPlayer.addEventListener("error", () => {
+
+    console.error(
+        "Fehler beim Laden des Videos:",
+        videoSource.src
+    );
+
+});
+
+
+videoSource.addEventListener("error", () => {
+
+    console.error(
+        "Videodatei nicht gefunden oder nicht abspielbar:",
+        videoSource.src
+    );
+
 });
