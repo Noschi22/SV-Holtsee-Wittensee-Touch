@@ -21,7 +21,6 @@ function loadVideo(videoPath) {
 
     videoPlayer.load();
 
-
     videoPlayer.play().catch(error => {
 
         console.log(
@@ -64,18 +63,15 @@ videoButtons.forEach(button => {
 
 
 /* =========================================================
-   FEHLERMELDUNGEN
+   FEHLERMELDUNG
 ========================================================= */
 
 videoPlayer.addEventListener("error", () => {
 
-    const error =
-        videoPlayer.error;
-
     console.error(
         "Fehler beim Laden des Videos:",
         videoPlayer.currentSrc,
-        error
+        videoPlayer.error
     );
 
 });
