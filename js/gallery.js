@@ -168,7 +168,7 @@ function loadGallery() {
             document.createElement("img");
 
         img.src =
-            `Dateien/bilder/Galerie/${galerie.ordner}/${dateiname}`;
+            `./Dateien/bilder/Galerie/${galerie.ordner}/${dateiname}`;
 
         img.alt =
             `${galerie.name} - Bild ${index + 1}`;
