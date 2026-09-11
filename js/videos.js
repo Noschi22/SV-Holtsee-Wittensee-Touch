@@ -5,13 +5,33 @@
 const videoButtons =
     document.querySelectorAll(".video-tab");
 
-
 const videoPlayer =
     document.getElementById("video-player");
 
 
-const videoSource =
-    document.getElementById("video-source");
+/* =========================================================
+   VIDEO LADEN
+========================================================= */
+
+function loadVideo(videoPath) {
+
+    videoPlayer.pause();
+
+    videoPlayer.src = videoPath;
+
+    videoPlayer.load();
+
+
+    videoPlayer.play().catch(error => {
+
+        console.log(
+            "Video konnte nicht automatisch gestartet werden:",
+            error
+        );
+
+    });
+
+}
 
 
 /* =========================================================
@@ -26,8 +46,6 @@ videoButtons.forEach(button => {
             button.dataset.video;
 
 
-        /* Aktiven Button ändern */
-
         videoButtons.forEach(btn => {
 
             btn.classList.remove("active");
@@ -38,32 +56,7 @@ videoButtons.forEach(button => {
         button.classList.add("active");
 
 
-        /* Video stoppen */
-
-        videoPlayer.pause();
-
-
-        /* Neues Video setzen */
-
-        videoSource.src =
-            selectedVideo;
-
-
-        /* Video neu laden */
-
-        videoPlayer.load();
-
-
-        /* Video starten */
-
-        videoPlayer.play().catch(error => {
-
-            console.log(
-                "Video konnte nicht automatisch gestartet werden:",
-                error
-            );
-
-        });
+        loadVideo(selectedVideo);
 
     });
 
@@ -71,24 +64,27 @@ videoButtons.forEach(button => {
 
 
 /* =========================================================
-   FEHLERMELDUNG
+   FEHLERMELDUNGEN
 ========================================================= */
 
 videoPlayer.addEventListener("error", () => {
 
+    const error =
+        videoPlayer.error;
+
     console.error(
         "Fehler beim Laden des Videos:",
-        videoSource.src
+        videoPlayer.currentSrc,
+        error
     );
 
 });
 
 
-videoSource.addEventListener("error", () => {
+/* =========================================================
+   STARTVIDEO
+========================================================= */
 
-    console.error(
-        "Videodatei nicht gefunden oder nicht abspielbar:",
-        videoSource.src
-    );
-
-});
+loadVideo(
+    "Dateien/Videos/video1.mp4"
+);
