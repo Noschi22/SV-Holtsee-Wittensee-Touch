@@ -1,423 +1,379 @@
 /* =========================================================
-   GRUNDEINSTELLUNGEN
+   GALERIE KONFIGURATION
 ========================================================= */
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+const galerien = [
+
+    {
+        name: "Eindrücke",
+        ordner: "eindrücke",
+
+        bilder: [
+            "bild1.jpeg",
+            "bild2.jpeg",
+            "bild3.jpeg"
+        ]
+    },
+
+    {
+        name: "Siegerfotos",
+        ordner: "siegerfotos",
+
+        bilder: [
+            "bild1.jpeg",
+            "bild2.jpeg",
+            "bild3.png",
+            "schwansen.png"
+        ]
+    }
+
+];
 
 
-body {
-    overflow: hidden;
-    min-height: 100vh;
+/* =========================================================
+   HTML ELEMENTE
+========================================================= */
 
-    font-family: Arial, Helvetica, sans-serif;
+const tabsContainer =
+    document.getElementById("gallery-tabs");
 
-    background:
-        url("../Dateien/bilder/stadion.jpeg")
-        center center / cover no-repeat;
+const coverflow =
+    document.getElementById("coverflow");
 
-    position: relative;
+const nextButton =
+    document.querySelector(".next");
+
+const prevButton =
+    document.querySelector(".prev");
+
+
+/* =========================================================
+   VARIABLEN
+========================================================= */
+
+let aktiveGalerie = 0;
+let current = 0;
+let autoSlide;
+
+
+/* =========================================================
+   ORDNER BUTTONS ERSTELLEN
+========================================================= */
+
+function createGalleryButtons() {
+
+    tabsContainer.innerHTML = "";
+
+    galerien.forEach((galerie, index) => {
+
+        const button =
+            document.createElement("button");
+
+        button.textContent =
+            galerie.name;
+
+        if (index === aktiveGalerie) {
+            button.classList.add("active");
+        }
+
+        button.addEventListener("click", () => {
+
+            aktiveGalerie = index;
+            current = 0;
+
+            createGalleryButtons();
+            loadGallery();
+            startAutoSlide();
+
+        });
+
+        tabsContainer.appendChild(button);
+
+    });
+
 }
 
 
 /* =========================================================
-   HINTERGRUND OVERLAY
+   GALERIE LADEN
 ========================================================= */
 
-.overlay {
-    position: fixed;
-    inset: 0;
+function loadGallery() {
 
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(255, 255, 255, 0.05),
-            rgba(0, 0, 0, 0.60)
-        );
+    coverflow.innerHTML = "";
 
-    z-index: 0;
+    const galerie =
+        galerien[aktiveGalerie];
 
-    pointer-events: none;
+    galerie.bilder.forEach((dateiname, index) => {
+
+        const cover =
+            document.createElement("div");
+
+        cover.className =
+            "cover";
+
+
+        const img =
+            document.createElement("img");
+
+
+        img.src =
+            `Dateien/bilder/galerie/${galerie.ordner}/${dateiname}`;
+
+
+        img.alt =
+            `${galerie.name} - Bild ${index + 1}`;
+
+
+        img.onerror = function () {
+
+            console.error(
+                "Bild nicht gefunden:",
+                img.src
+            );
+
+            cover.style.display = "none";
+
+        };
+
+
+        cover.appendChild(img);
+
+
+        /* =============================================
+           BESCHRIFTUNG NUR BEI SIEGERFOTOS
+        ============================================= */
+
+        if (galerie.ordner === "siegerfotos") {
+
+            const caption =
+                document.createElement("div");
+
+            caption.className =
+                "image-caption";
+
+
+            let name =
+                dateiname.replace(/\.[^/.]+$/, "");
+
+            name =
+                name.replace(/[-_]/g, " ");
+
+            name =
+                name.charAt(0).toUpperCase() +
+                name.slice(1);
+
+            caption.textContent =
+                name;
+
+            cover.appendChild(caption);
+
+        }
+
+
+        coverflow.appendChild(cover);
+
+    });
+
+
+    updateGallery();
+
 }
 
 
 /* =========================================================
-   INHALTE ÜBER DEM HINTERGRUND
+   SICHTBARE BILDER
 ========================================================= */
 
-header,
-.gallery-tabs,
-.coverflow-container {
-    position: relative;
-    z-index: 1;
-}
+function getCovers() {
 
+    return coverflow.querySelectorAll(
+        ".cover:not([style*='display: none'])"
+    );
 
-/* Uhr und Zurück-Button behalten ihre Position
-   aus der main.css */
-
-.datetime-card,
-.nav-back-fixed {
-    z-index: 200;
 }
 
 
 /* =========================================================
-   ÜBERSCHRIFT
+   COVERFLOW ANORDNEN
 ========================================================= */
 
-header {
-    text-align: center;
-    color: white;
+function updateGallery() {
 
-    padding: 25px 20px 10px;
-}
+    const covers =
+        getCovers();
 
 
-header h1 {
-    font-size: 3rem;
-
-    text-shadow:
-        0 0 10px white,
-        0 0 20px rgba(255, 255, 255, 0.6);
-}
-
-
-header p {
-    margin-top: 10px;
-
-    font-size: 1.1rem;
-
-    color: rgba(255, 255, 255, 0.9);
-}
-
-
-/* =========================================================
-   ORDNER BUTTONS
-========================================================= */
-
-.gallery-tabs {
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-
-    gap: 18px;
-
-    margin: 15px auto 20px;
-
-    padding: 0 120px;
-
-    flex-wrap: wrap;
-
-    z-index: 100;
-}
-
-
-.gallery-tabs button {
-    position: relative;
-
-    z-index: 101;
-
-    min-width: 150px;
-
-    padding: 14px 26px;
-
-    border: 2px solid #00ff55;
-
-    border-radius: 999px;
-
-    background:
-        rgba(0, 0, 0, 0.55);
-
-    color: white;
-
-    font-size: 1.1rem;
-
-    font-weight: 600;
-
-    cursor: pointer;
-
-    pointer-events: auto;
-
-    transition:
-        background 0.25s ease,
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
-}
-
-
-.gallery-tabs button:hover {
-    background:
-        rgba(0, 255, 85, 0.25);
-
-    transform: scale(1.05);
-}
-
-
-.gallery-tabs button.active {
-    background: #00ff55;
-
-    color: #001b08;
-
-    font-weight: bold;
-
-    box-shadow:
-        0 0 10px rgba(0, 255, 85, 0.8),
-        0 0 25px rgba(0, 255, 85, 0.5);
-}
-
-
-/* =========================================================
-   COVERFLOW BEREICH
-========================================================= */
-
-.coverflow-container {
-    width: 100%;
-
-    height: 60vh;
-
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-
-    z-index: 1;
-}
-
-
-/* =========================================================
-   COVERFLOW
-========================================================= */
-
-.coverflow {
-    position: relative;
-
-    width: 1200px;
-    height: 550px;
-
-    perspective: 1500px;
-}
-
-
-/* =========================================================
-   EINZELNES BILD
-========================================================= */
-
-.cover {
-    position: absolute;
-
-    top: 50%;
-    left: 50%;
-
-    width: 520px;
-    height: 320px;
-
-    transform-style: preserve-3d;
-
-    transition:
-        transform 0.7s ease,
-        opacity 0.7s ease;
-}
-
-
-/* =========================================================
-   BILD
-========================================================= */
-
-.cover img {
-    display: block;
-
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-
-    border: 4px solid #00ff55;
-
-    border-radius: 14px;
-
-    box-shadow:
-        0 0 10px rgba(0, 255, 85, 0.5),
-        0 0 25px rgba(0, 255, 85, 0.4),
-        0 0 60px rgba(0, 255, 85, 0.2),
-        0 20px 50px rgba(0, 0, 0, 0.8);
-
-    transition:
-        border 0.4s ease,
-        box-shadow 0.4s ease;
-}
-
-
-/* AKTIVES BILD */
-
-.cover.active img {
-    border: 4px solid white;
-
-    box-shadow:
-        0 0 15px white,
-        0 0 35px rgba(255, 255, 255, 0.8),
-        0 0 80px rgba(255, 255, 255, 0.4),
-        0 25px 60px rgba(0, 0, 0, 0.9);
-}
-
-
-/* =========================================================
-   PFEILTASTEN
-========================================================= */
-
-.nav {
-    position: absolute;
-
-    width: 70px;
-    height: 70px;
-
-    border: 2px solid rgba(255, 255, 255, 0.3);
-
-    border-radius: 50%;
-
-    cursor: pointer;
-
-    font-size: 35px;
-
-    color: white;
-
-    background:
-        rgba(0, 0, 0, 0.45);
-
-    backdrop-filter: blur(8px);
-
-    transition:
-        background 0.3s ease,
-        transform 0.3s ease;
-
-    z-index: 30;
-}
-
-
-.nav:hover {
-    background:
-        rgba(255, 255, 255, 0.30);
-
-    transform: scale(1.1);
-}
-
-
-/* LINKER PFEIL */
-
-.prev {
-    left: 40px;
-}
-
-
-/* RECHTER PFEIL */
-
-.next {
-    right: 40px;
-}
-
-
-/* =========================================================
-   RESPONSIVE
-========================================================= */
-
-@media (max-width: 1200px) {
-
-    .coverflow {
-        width: 950px;
+    if (covers.length === 0) {
+        return;
     }
 
 
-    .cover {
-        width: 460px;
-        height: 290px;
-    }
-
-}
-
-
-@media (max-width: 900px) {
-
-    header h1 {
-        font-size: 2.3rem;
+    if (current >= covers.length) {
+        current = 0;
     }
 
 
-    .gallery-tabs {
-        padding: 0 80px;
+    covers.forEach((cover, index) => {
 
-        gap: 10px;
-    }
+        cover.classList.remove("active");
 
-
-    .gallery-tabs button {
-        min-width: 120px;
-
-        padding: 11px 18px;
-
-        font-size: 1rem;
-    }
+        const offset =
+            index - current;
 
 
-    .coverflow {
-        width: 750px;
-    }
+        cover.style.opacity = "0";
+        cover.style.zIndex = "0";
 
 
-    .cover {
-        width: 390px;
-        height: 250px;
-    }
+        if (offset === 0) {
 
+            cover.style.transform =
+                "translate(-50%, -50%) scale(1)";
 
-    .nav {
-        width: 60px;
-        height: 60px;
+            cover.style.opacity = "1";
+            cover.style.zIndex = "10";
 
-        font-size: 30px;
-    }
+            cover.classList.add("active");
 
+        }
 
-    .prev {
-        left: 20px;
-    }
+        else if (offset === -1) {
 
+            cover.style.transform =
+                "translate(-140%, -50%) rotateY(45deg) scale(.8)";
 
-    .next {
-        right: 20px;
-    }
+            cover.style.opacity = ".75";
+            cover.style.zIndex = "5";
+
+        }
+
+        else if (offset === 1) {
+
+            cover.style.transform =
+                "translate(40%, -50%) rotateY(-45deg) scale(.8)";
+
+            cover.style.opacity = ".75";
+            cover.style.zIndex = "5";
+
+        }
+
+        else if (offset === -2) {
+
+            cover.style.transform =
+                "translate(-220%, -50%) rotateY(60deg) scale(.6)";
+
+            cover.style.opacity = ".4";
+            cover.style.zIndex = "1";
+
+        }
+
+        else if (offset === 2) {
+
+            cover.style.transform =
+                "translate(120%, -50%) rotateY(-60deg) scale(.6)";
+
+            cover.style.opacity = ".4";
+            cover.style.zIndex = "1";
+
+        }
+
+    });
 
 }
 
 
 /* =========================================================
-   BESCHRIFTUNG SIEGERFOTOS
+   NÄCHSTES BILD
 ========================================================= */
 
-.image-caption {
-    position: absolute;
+function nextImage() {
 
-    left: 50%;
-    bottom: -55px;
+    const covers =
+        getCovers();
 
-    transform: translateX(-50%);
+    if (covers.length === 0) {
+        return;
+    }
 
-    width: 100%;
+    current++;
 
-    text-align: center;
+    if (current >= covers.length) {
+        current = 0;
+    }
 
-    color: white;
+    updateGallery();
 
-    font-size: 1.35rem;
-
-    font-weight: bold;
-
-    text-shadow:
-        0 2px 5px rgba(0, 0, 0, 0.9),
-        0 0 10px rgba(0, 0, 0, 0.8);
-
-    pointer-events: none;
 }
+
+
+/* =========================================================
+   VORHERIGES BILD
+========================================================= */
+
+function prevImage() {
+
+    const covers =
+        getCovers();
+
+    if (covers.length === 0) {
+        return;
+    }
+
+    current--;
+
+    if (current < 0) {
+        current = covers.length - 1;
+    }
+
+    updateGallery();
+
+}
+
+
+/* =========================================================
+   AUTOMATISCHER BILDWECHSEL
+========================================================= */
+
+function startAutoSlide() {
+
+    clearInterval(autoSlide);
+
+    autoSlide =
+        setInterval(() => {
+
+            nextImage();
+
+        }, 5000);
+
+}
+
+
+/* =========================================================
+   PFEILE
+========================================================= */
+
+nextButton.addEventListener("click", () => {
+
+    nextImage();
+    startAutoSlide();
+
+});
+
+
+prevButton.addEventListener("click", () => {
+
+    prevImage();
+    startAutoSlide();
+
+});
+
+
+/* =========================================================
+   START
+========================================================= */
+
+createGalleryButtons();
+loadGallery();
+startAutoSlide();
