@@ -119,7 +119,7 @@ function loadGallery() {
 
 
         img.src =
-            `Dateien/bilder/galerie/${galerie.ordner}/${dateiname}`;
+            `Dateien/bilder/Galerie/${galerie.ordner}/${dateiname}`;
 
 
         img.alt =
