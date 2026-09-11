@@ -2,35 +2,37 @@
    GALERIE KONFIGURATION
 ========================================================= */
 
+
 /*
 
-ORDNERSTRUKTUR BEISPIEL:
+ORDNERSTRUKTUR:
 
 Dateien/
-└── Bilder/
-    └── Galerie/
-        ├── mannschaft/
+└── bilder/
+    ├── stadion.jpeg
+    │
+    └── galerie/
+        │
+        ├── eindrücke/
         │   ├── bild1.jpeg
-        │   ├── bild2.png
-        │   ├── bild3.jpeg
-        │   └── bild4.png
+        │   ├── bild2.jpeg
+        │   └── bild3.jpeg
         │
-        ├── siegerfotos/
-        │   ├── schwansen1.png
-        │   ├── schwansen2.jpeg
-        │   └── pokal.png
-        │
-        └── training/
-            ├── training1.jpeg
-            ├── training2.png
-            └── training3.jpeg
+        └── siegerfotos/
+            ├── bild1.jpeg
+            ├── bild2.jpeg
+            ├── bild3.png
+            └── schwansen.png
 
 
 WICHTIG:
 
-name   = Beschriftung des Buttons
-ordner = tatsächlicher Ordnername
-bilder = genaue Dateinamen der Bilder
+Dateien = D groß
+bilder = klein
+galerie = klein
+
+Ordnernamen und Bilddateien müssen exakt
+so geschrieben sein wie auf GitHub.
 
 */
 
@@ -39,6 +41,7 @@ const galerien = [
 
     {
         name: "Eindrücke",
+
         ordner: "eindrücke",
 
         bilder: [
@@ -48,8 +51,10 @@ const galerien = [
         ]
     },
 
+
     {
         name: "Siegerfotos",
+
         ordner: "siegerfotos",
 
         bilder: [
@@ -151,6 +156,7 @@ function loadGallery() {
 
     coverflow.innerHTML = "";
 
+
     const galerie =
         galerien[aktiveGalerie];
 
@@ -160,6 +166,7 @@ function loadGallery() {
         const cover =
             document.createElement("div");
 
+
         cover.className =
             "cover";
 
@@ -167,8 +174,10 @@ function loadGallery() {
         const img =
             document.createElement("img");
 
+
         img.src =
-            `Dateien/Bilder/Galerie/${galerie.ordner}/${dateiname}`;
+            `Dateien/bilder/galerie/${galerie.ordner}/${dateiname}`;
+
 
         img.alt =
             `${galerie.name} - Bild ${index + 1}`;
@@ -198,6 +207,7 @@ function loadGallery() {
 
             const caption =
                 document.createElement("div");
+
 
             caption.className =
                 "image-caption";
@@ -296,11 +306,14 @@ function updateGallery() {
             cover.style.transform =
                 "translate(-50%, -50%) scale(1)";
 
+
             cover.style.opacity =
                 "1";
 
+
             cover.style.zIndex =
                 "10";
+
 
             cover.classList.add("active");
 
@@ -316,8 +329,10 @@ function updateGallery() {
             cover.style.transform =
                 "translate(-140%, -50%) rotateY(45deg) scale(.8)";
 
+
             cover.style.opacity =
                 ".75";
+
 
             cover.style.zIndex =
                 "5";
@@ -334,8 +349,10 @@ function updateGallery() {
             cover.style.transform =
                 "translate(40%, -50%) rotateY(-45deg) scale(.8)";
 
+
             cover.style.opacity =
                 ".75";
+
 
             cover.style.zIndex =
                 "5";
@@ -352,8 +369,10 @@ function updateGallery() {
             cover.style.transform =
                 "translate(-220%, -50%) rotateY(60deg) scale(.6)";
 
+
             cover.style.opacity =
                 ".4";
+
 
             cover.style.zIndex =
                 "1";
@@ -370,8 +389,10 @@ function updateGallery() {
             cover.style.transform =
                 "translate(120%, -50%) rotateY(-60deg) scale(.6)";
 
+
             cover.style.opacity =
                 ".4";
+
 
             cover.style.zIndex =
                 "1";
