@@ -4,13 +4,13 @@ const matches = {
 
         date: "2026-09-26T16:30:00",
 
-        home: {
+        away: {
             name: "SV Holtsee/Wittensee Liga",
             logo: "assets/logo.png",
             highlight: true
         },
 
-        away: {
+        home: {
             name: "Gettorfer SC II",
             logo: "assets/gettorf.png",
             highlight: false
@@ -29,10 +29,10 @@ const matches = {
         }
         */
 
-        result: {
+        /result: {
             home: 4,
             away: 4
-        }
+        }/
 
     },
 
@@ -53,10 +53,10 @@ const matches = {
             highlight: false
         },
 
-        result: {
+        /*result: {
             home: 5,
             away: 2
-        }
+        }*/
 
     }
 
