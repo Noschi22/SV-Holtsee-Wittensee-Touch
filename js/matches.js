@@ -2,7 +2,7 @@ const matches = {
 
     team1: {
 
-        date: "2026-09-05T16:00:00",
+        date: "2026-09-26T16:30:00",
 
         home: {
             name: "SV Holtsee/Wittensee Liga",
@@ -11,8 +11,8 @@ const matches = {
         },
 
         away: {
-            name: "Osterrönfelder TSV II",
-            logo: "assets/otsv.png",
+            name: "Gettorfer SC II",
+            logo: "assets/gettorf.png",
             highlight: false
         },
 
@@ -39,7 +39,7 @@ const matches = {
 
     team2: {
 
-        date: "2026-09-06T13:00:00",
+        date: "2026-09-20T13:00:00",
 
         home: {
             name: "SV Holtsee/Wittensee Zwoote",
@@ -48,8 +48,8 @@ const matches = {
         },
 
         away: {
-            name: "SV Schwansen II",
-            logo: "assets/schwansen.png",
+            name: "Eckernförder SV III",
+            logo: "assets/esv.png",
             highlight: false
         },
 
