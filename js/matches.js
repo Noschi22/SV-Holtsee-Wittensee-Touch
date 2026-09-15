@@ -29,11 +29,6 @@ const matches = {
         }
         */
 
-        /result: {
-            home: 4,
-            away: 4
-        }/
-
     },
 
 
@@ -49,16 +44,11 @@ const matches = {
 
         away: {
             name: "Eckernförder SV III",
-            logo: "assets/esv.png",
+            logo: "assets/esv.jpg",
             highlight: false
         },
 
-        /*result: {
-            home: 5,
-            away: 2
-        }*/
-
-    }
+     }
 
 };
 
