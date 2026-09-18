@@ -15,20 +15,17 @@ const videoPlayer =
 
 function loadVideo(videoPath) {
 
+    /* Falls gerade ein Video läuft: stoppen */
     videoPlayer.pause();
 
+    /* Sicher an den Anfang setzen */
+    videoPlayer.currentTime = 0;
+
+    /* Neues Video setzen */
     videoPlayer.src = videoPath;
 
+    /* Video nur laden, NICHT automatisch starten */
     videoPlayer.load();
-
-    videoPlayer.play().catch(error => {
-
-        console.log(
-            "Video konnte nicht automatisch gestartet werden:",
-            error
-        );
-
-    });
 
 }
 
@@ -45,6 +42,8 @@ videoButtons.forEach(button => {
             button.dataset.video;
 
 
+        /* Aktiven Button entfernen */
+
         videoButtons.forEach(btn => {
 
             btn.classList.remove("active");
@@ -52,8 +51,12 @@ videoButtons.forEach(button => {
         });
 
 
+        /* Angeclickten Button aktiv setzen */
+
         button.classList.add("active");
 
+
+        /* Ausgewähltes Video laden */
 
         loadVideo(selectedVideo);
 
@@ -78,9 +81,26 @@ videoPlayer.addEventListener("error", () => {
 
 
 /* =========================================================
-   STARTVIDEO
-========================================================= 
+   VIDEO ENDE
+========================================================= */
 
-loadVideo(
-    "Dateien/Videos/video1.mp4"
-);*/
+videoPlayer.addEventListener("ended", () => {
+
+    /* Nach Videoende wieder an den Anfang */
+    videoPlayer.currentTime = 0;
+
+});
+
+
+/* =========================================================
+   STARTVIDEO
+========================================================= */
+
+/*
+   Absichtlich KEIN automatischer Start.
+
+   Das erste Video wird erst geladen,
+   wenn der Benutzer auf einen Video-Button klickt.
+
+   Das ist für Raspberry / Chromium stabiler.
+*/
