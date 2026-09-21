@@ -34,17 +34,17 @@ const matches = {
 
     team2: {
 
-        date: "2026-09-20T13:00:00",
+        date: "2026-09-27T15:00:00",
 
-        home: {
+        away: {
             name: "SV Holtsee/Wittensee Zwoote",
             logo: "assets/logo.png",
             highlight: true
         },
 
-        away: {
-            name: "Eckernförder SV III",
-            logo: "assets/esv.jpg",
+        home: {
+            name: "Barkelsbyer SV II",
+            logo: "assets/barkelsby.png",
             highlight: false
         },
 
