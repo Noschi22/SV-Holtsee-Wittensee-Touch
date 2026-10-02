@@ -231,3 +231,24 @@
     }
 }
 
+.match-status {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.match-status strong {
+    display: inline-block;
+    padding: 12px 32px;
+    border-radius: 999px;
+    background: #d32f2f;
+    color: #ffffff;
+    font-size: 38px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    line-height: 1;
+    text-transform: uppercase;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+}

@@ -1,58 +1,31 @@
 function getCountdownText(matchDateString) {
 
     const now = new Date();
-
     const matchDate = new Date(matchDateString);
-
     const diff = matchDate - now;
 
-
     if (diff <= 0) {
-
         return "Spiel läuft oder hat begonnen";
-
     }
 
+    const totalSeconds = Math.floor(diff / 1000);
 
-    const totalSeconds =
-        Math.floor(diff / 1000);
+    const days = Math.floor(
+        totalSeconds / (60 * 60 * 24)
+    );
 
+    const hours = Math.floor(
+        (totalSeconds % (60 * 60 * 24)) / (60 * 60)
+    );
 
-    const days =
-        Math.floor(
-            totalSeconds /
-            (60 * 60 * 24)
-        );
+    const minutes = Math.floor(
+        (totalSeconds % (60 * 60)) / 60
+    );
 
-
-    const hours =
-        Math.floor(
-            (
-                totalSeconds %
-                (60 * 60 * 24)
-            ) /
-            (60 * 60)
-        );
-
-
-    const minutes =
-        Math.floor(
-            (
-                totalSeconds %
-                (60 * 60)
-            ) /
-            60
-        );
-
-
-    const seconds =
-        totalSeconds % 60;
-
+    const seconds = totalSeconds % 60;
 
     return `Anpfiff in ${days}d ${hours}h ${minutes}m ${seconds}s`;
-
 }
-
 
 
 /* =========================================================
@@ -61,51 +34,62 @@ function getCountdownText(matchDateString) {
 
 function formatMatchDate(dateString) {
 
-    const date =
-        new Date(dateString);
+    const date = new Date(dateString);
 
-
-    return date.toLocaleDateString(
-        "de-DE",
-        {
-
-            weekday: "long",
-
-            day: "2-digit",
-
-            month: "2-digit",
-
-            year: "numeric"
-
-        }
-
-    ) +
-
-    " · " +
-
-    date.toLocaleTimeString(
-        "de-DE",
-        {
-
-            hour: "2-digit",
-
-            minute: "2-digit"
-
-        }
-
-    ) +
-
-    " Uhr";
-
+    return (
+        date.toLocaleDateString(
+            "de-DE",
+            {
+                weekday: "long",
+                day: "2-digit",
+                month: "2-digit",
+                year: "numeric"
+            }
+        ) +
+        " · " +
+        date.toLocaleTimeString(
+            "de-DE",
+            {
+                hour: "2-digit",
+                minute: "2-digit"
+            }
+        ) +
+        " Uhr"
+    );
 }
 
 
-
 /* =========================================================
-   ERGEBNIS ODER COUNTDOWN
+   STATUS / ERGEBNIS / COUNTDOWN
 ========================================================= */
 
 function getMatchStatus(match) {
+
+    /*
+    Wenn ein Status eingetragen wurde,
+    wird dieser immer zuerst angezeigt.
+
+    Beispiele:
+    status: "Abgesagt"
+    status: "Verlegt"
+    status: "Ausgefallen"
+    status: "Spielabbruch"
+    */
+
+    if (
+        typeof match.status === "string" &&
+        match.status.trim() !== ""
+    ) {
+
+        return `
+            <div class="match-status">
+                <strong>
+                    ${match.status.toUpperCase()}
+                </strong>
+            </div>
+        `;
+    }
+
 
     /*
     Wenn ein Ergebnis eingetragen wurde,
@@ -113,53 +97,38 @@ function getMatchStatus(match) {
     */
 
     if (
-
         match.result &&
-
         Number.isFinite(match.result.home) &&
-
         Number.isFinite(match.result.away)
-
     ) {
 
         return `
-
             <div class="match-result">
 
                 <span class="result-score">
-                    ${match.result.home}
-                    :
-                    ${match.result.away}
+                    ${match.result.home} : ${match.result.away}
                 </span>
 
             </div>
-
         `;
-
     }
 
 
     /*
-    Noch kein Ergebnis:
+    Noch kein Status und noch kein Ergebnis:
     Countdown anzeigen.
     */
 
     return `
-
         <div class="match-countdown">
 
             <strong>
-
                 ${getCountdownText(match.date)}
-
             </strong>
 
         </div>
-
     `;
-
 }
-
 
 
 /* =========================================================
@@ -171,36 +140,24 @@ function renderMatch(containerId, match) {
     const container =
         document.getElementById(containerId);
 
-
     if (!container || !match) {
-
         return;
-
     }
 
 
     if (
-
         !match.date ||
-
         !match.home ||
-
         !match.away
-
     ) {
 
         container.innerHTML = `
-
             <div class="match-empty">
-
                 Keine Spieldaten vorhanden
-
             </div>
-
         `;
 
         return;
-
     }
 
 
@@ -214,16 +171,11 @@ function renderMatch(containerId, match) {
             <div class="match-date-row">
 
                 <span class="match-date-icon">
-
                     🗓️
-
                 </span>
 
-
                 <span>
-
                     ${formatMatchDate(match.date)}
-
                 </span>
 
             </div>
@@ -267,9 +219,7 @@ function renderMatch(containerId, match) {
                 <!-- VS -->
 
                 <div class="vs-badge">
-
                     VS
-
                 </div>
 
 
@@ -305,7 +255,7 @@ function renderMatch(containerId, match) {
 
 
 
-            <!-- ERGEBNIS ODER COUNTDOWN -->
+            <!-- STATUS / ERGEBNIS / COUNTDOWN -->
 
             ${getMatchStatus(match)}
 
@@ -313,5 +263,4 @@ function renderMatch(containerId, match) {
         </div>
 
     `;
-
 }
