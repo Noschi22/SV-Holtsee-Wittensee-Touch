@@ -2,7 +2,7 @@ const matches = {
 
     team1: {
 
-        date: "2026-10-04T15:00:00",
+        date: "2026-10-18T15:00:00",
 
         home: {
             name: "SV Holtsee/Wittensee Liga",
@@ -11,8 +11,8 @@ const matches = {
         },
 
         away: {
-            name: "FC Haddeby",
-            logo: "assets/haddeby.png",
+            name: "SV Schwansen",
+            logo: "assets/schwansen.png",
             highlight: false
         },
 
@@ -22,7 +22,7 @@ const matches = {
 
     team2: {
 
-        date: "2026-10-04T13:00:00",
+        date: "2026-10-18T13:00:00",
 
         home: {
             name: "SV Holtsee/Wittensee Zwoote",
@@ -31,13 +31,13 @@ const matches = {
         },
 
         away: {
-            name: "FC Haddeby 04 II",
-            logo: "assets/haddeby.png",
+            name: "Suchsdorfer SV III",
+            logo: "assets/suchsdorf.png",
             highlight: false
         },
 
         result: null,
-        status: "ABGESAGT"
+        status: null
     }
 
 };
