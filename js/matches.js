@@ -2,7 +2,7 @@ const matches = {
 
     team1: {
 
-        date: "2026-10-18T15:00:00",
+        date: "2026-11-01T14:00:00",
 
         home: {
             name: "SV Holtsee/Wittensee Liga",
@@ -11,8 +11,8 @@ const matches = {
         },
 
         away: {
-            name: "SV Schwansen",
-            logo: "assets/schwansen.png",
+            name: "TSV Neudorf-Bornstein",
+            logo: "assets/neudorf.png",
             highlight: false
         },
 
@@ -22,17 +22,17 @@ const matches = {
 
     team2: {
 
-        date: "2026-10-18T13:00:00",
+        date: "2026-11-08T12:00:00",
 
-        home: {
+        away: {
             name: "SV Holtsee/Wittensee Zwoote",
             logo: "assets/logo.png",
             highlight: true
         },
 
-        away: {
-            name: "Suchsdorfer SV III",
-            logo: "assets/suchsdorf.png",
+        home: {
+            name: "SG Osdorf/Schinkel",
+            logo: "assets/osdorf.jpg",
             highlight: false
         },
 
