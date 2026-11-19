@@ -2,17 +2,17 @@ const matches = {
 
     team1: {
 
-        date: "2026-11-01T14:00:00",
+        date: "2026-11-22T14:00:00",
 
-        home: {
+        away: {
             name: "SV Holtsee/Wittensee Liga",
             logo: "assets/logo.png",
             highlight: true
         },
 
-        away: {
-            name: "TSV Neudorf-Bornstein",
-            logo: "assets/neudorf.png",
+        home: {
+            name: "Rendsburger TSV",
+            logo: "assets/rtsv.png",
             highlight: false
         },
 
@@ -22,7 +22,7 @@ const matches = {
 
     team2: {
 
-        date: "2026-11-08T12:00:00",
+        date: "2026-11-22T14:00:00",
 
         away: {
             name: "SV Holtsee/Wittensee Zwoote",
@@ -31,8 +31,8 @@ const matches = {
         },
 
         home: {
-            name: "SG Osdorf/Schinkel",
-            logo: "assets/osdorf.jpg",
+            name: "Eckernförder SV III",
+            logo: "assets/esv.jpg",
             highlight: false
         },
 
